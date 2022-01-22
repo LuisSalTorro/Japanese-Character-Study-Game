@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LandingPage from "./LandingPage/LandingPage"
 import FrontPage from "./MainDisplay/FrontPage"
-// https://reactnavigation.org/docs/getting-started/
+
 const Main = () => {
   const Stack = createNativeStackNavigator()
 

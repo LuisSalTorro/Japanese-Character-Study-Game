@@ -1,8 +1,4 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import FrontPage from '../MainDisplay/FrontPage';
 
 const LandingPage = props => {
   const navigation = props.navigation
@@ -18,7 +14,7 @@ const LandingPage = props => {
      </Text>
      <Button
         title='Go to front page'
-        onPress={switchToFrontPage}
+        onPress={() => switchToFrontPage()}
      />
     </View>
   );

@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const FrontPage = props => {
-    const navigation = props.navigation
-
+const FrontPage = () => {
     return (
         <View style={styles.container}>
            <Text>
-               Main Page!
+               Welcome!
            </Text>
         </View>
     )
