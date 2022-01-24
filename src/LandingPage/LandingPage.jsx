@@ -1,10 +1,25 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { CommonActions} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const LandingPage = props => {
   const navigation = props.navigation
 
-  const switchToFrontPage = () => {
-    navigation.navigate('FrontPage')
+  const switchToFrontPageAndPop = username => {
+    const data = {
+      username
+    }
+    const navigatorActions = {
+      key: null,
+      index: 1,
+      routes: [
+          {
+            name: 'FrontPage',
+            params: data
+          }
+      ]
+    }
+    navigation.dispatch(CommonActions.reset(navigatorActions))
   }
 
   return (
@@ -13,8 +28,8 @@ const LandingPage = props => {
        Landing Page
      </Text>
      <Button
-        title='Go to front page'
-        onPress={() => switchToFrontPage()}
+        title='Go to the main page'
+        onPress={() => switchToFrontPageAndPop('userName goes here')}
      />
     </View>
   );

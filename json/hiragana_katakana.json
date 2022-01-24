@@ -1,0 +1,404 @@
+[
+    {
+        "Katakana": "ア",
+        "Hiragana": "あ",
+        "Romaji": "a",
+        "family": "vowel"
+    },
+    {
+        "Katakana": "イ",
+        "Hiragana": "い",
+        "Romaji": "i",
+        "family": "vowel"
+    },
+    {
+        "Katakana": "ウ",
+        "Hiragana": "う",
+        "Romaji": "u",
+        "family": "vowel"
+    },
+    {
+        "Katakana": "エ",
+        "Hiragana": "え",
+        "Romaji": "e",
+        "family": "vowel"
+    },
+    {
+        "Katakana": "オ",
+        "Hiragana": "お",
+        "Romaji": "o",
+        "family": "vowel"
+    },
+    {
+        "Katakana": "カ",
+        "Hiragana": "か",
+        "Romaji": "ka",
+        "family": "k"
+    },
+    {
+        "Katakana": "キ",
+        "Hiragana": "き",
+        "Romaji": "ki",
+        "family": "k"
+    },
+    {
+        "Katakana": "ク",
+        "Hiragana": "く",
+        "Romaji": "ku",
+        "family": "k"
+    },
+    {
+        "Katakana": "ケ",
+        "Hiragana": "け",
+        "Romaji": "ke",
+        "family": "k"
+    },
+    {
+        "Katakana": "コ",
+        "Hiragana": "こ",
+        "Romaji": "ko",
+        "family": "k"
+    },
+    {
+        "Katakana": "キャ",
+        "Hiragana": "きゃ",
+        "Romaji": "kya",
+        "family": "k"
+    },
+    {
+        "Katakana": "キュ",
+        "Hiragana": "きゅ",
+        "Romaji": "kyu",
+        "family": "k"
+    },
+    {
+        "Katakana": "キョ",
+        "Hiragana": "きょ",
+        "Romaji": "kyo",
+        "family": "k"
+    },
+    {
+        "Katakana": "サ",
+        "Hiragana": "さ",
+        "Romaji": "sa",
+        "family": "s"
+    },
+    {
+        "Katakana": "シ",
+        "Hiragana": "し",
+        "Romaji": "shi",
+        "family": "s"
+    },
+    {
+        "Katakana": "ス",
+        "Hiragana": "す",
+        "Romaji": "su",
+        "family": "s"
+    },
+    {
+        "Katakana": "セ",
+        "Hiragana": "せ",
+        "Romaji": "se",
+        "family": "s"
+    },
+    {
+        "Katakana": "ソ",
+        "Hiragana": "そ",
+        "Romaji": "so",
+        "family": "s"
+    },
+    {
+        "Katakana": "シャ",
+        "Hiragana": "しゃ",
+        "Romaji": "sha",
+        "family": "s"
+    },
+    {
+        "Katakana": "シュ",
+        "Hiragana": "しゅ",
+        "Romaji": "shu",
+        "family": "s"
+    },
+    {
+        "Katakana": "ショ",
+        "Hiragana": "しょ",
+        "Romaji": "sho",
+        "family": "s"
+    },
+    {
+        "Katakana": "タ",
+        "Hiragana": "た",
+        "Romaji": "ta",
+        "family": "t"
+    },
+    {
+        "Katakana": "チ",
+        "Hiragana": "ち",
+        "Romaji": "chi",
+        "family": "t"
+    },
+    {
+        "Katakana": "ツ",
+        "Hiragana": "つ",
+        "Romaji": "tsu",
+        "family": "t"
+    },
+    {
+        "Katakana": "テ",
+        "Hiragana": "て",
+        "Romaji": "te",
+        "family": "t"
+    },
+    {
+        "Katakana": "ト",
+        "Hiragana": "と",
+        "Romaji": "to",
+        "family": "t"
+    },
+    {
+        "Katakana": "チャ",
+        "Hiragana": "ちゃ",
+        "Romaji": "cha",
+        "family": "t"
+    },
+    {
+        "Katakana": "チュ",
+        "Hiragana": "ちゅ",
+        "Romaji": "chu",
+        "family": "t"
+    },
+    {
+        "Katakana": "チョ",
+        "Hiragana": "ちょ",
+        "Romaji": "cho",
+        "family": "t"
+    },
+    {
+        "Katakana": "ナ",
+        "Hiragana": "な",
+        "Romaji": "na",
+        "family": "n"
+    },
+    {
+        "Katakana": "ニ",
+        "Hiragana": "に",
+        "Romaji": "ni",
+        "family": "n"
+    },
+    {
+        "Katakana": "ヌ",
+        "Hiragana": "ぬ",
+        "Romaji": "nu",
+        "family": "n"
+    },
+    {
+        "Katakana": "ネ",
+        "Hiragana": "ね",
+        "Romaji": "ne",
+        "family": "n"
+    },
+    {
+        "Katakana": "ノ",
+        "Hiragana": "の",
+        "Romaji": "no",
+        "family": "n"
+    },
+    {
+        "Katakana": "ニャ",
+        "Hiragana": "にゃ",
+        "Romaji": "nya",
+        "family": "n"
+    },
+    {
+        "Katakana": "ニュ",
+        "Hiragana": "にゅ",
+        "Romaji": "nyu",
+        "family": "n"
+    },
+    {
+        "Katakana": "ニョ",
+        "Hiragana": "にょ",
+        "Romaji": "nyo",
+        "family": "n"
+    },
+    {
+        "Katakana": "ハ",
+        "Hiragana": "は",
+        "Romaji": "ha",
+        "family": "h"
+    },
+    {
+        "Katakana": "ヒ",
+        "Hiragana": "ひ",
+        "Romaji": "hi",
+        "family": "h"
+    },
+    {
+        "Katakana": "フ",
+        "Hiragana": "ふ",
+        "Romaji": "fu",
+        "family": "h"
+    },
+    {
+        "Katakana": "ヘ",
+        "Hiragana": "へ",
+        "Romaji": "he",
+        "family": "h"
+    },
+    {
+        "Katakana": "ホ",
+        "Hiragana": "ほ",
+        "Romaji": "ho",
+        "family": "h"
+    },
+    {
+        "Katakana": "ヒャ",
+        "Hiragana": "ひゃ",
+        "Romaji": "hya",
+        "family": "h"
+    },
+    {
+        "Katakana": "ヒュ",
+        "Hiragana": "ひゅ",
+        "Romaji": "hyu",
+        "family": "h"
+    },
+    {
+        "Katakana": "ヒョ",
+        "Hiragana": "ひょ",
+        "Romaji": "hyo",
+        "family": "h"
+    },
+    {
+        "Katakana": "マ",
+        "Hiragana": "ま",
+        "Romaji": "ma",
+        "family": "m"
+    },
+    {
+        "Katakana": "ミ",
+        "Hiragana": "み",
+        "Romaji": "mi",
+        "family": "m"
+    },
+    {
+        "Katakana": "ム",
+        "Hiragana": "む",
+        "Romaji": "mu",
+        "family": "m"
+    },
+    {
+        "Katakana": "メ",
+        "Hiragana": "め",
+        "Romaji": "me",
+        "family": "m"
+    },
+    {
+        "Katakana": "モ",
+        "Hiragana": "も",
+        "Romaji": "mo",
+        "family": "m"
+    },
+    {
+        "Katakana": "ミャ",
+        "Hiragana": "みゃ",
+        "Romaji": "mya",
+        "family": "m"
+    },
+    {
+        "Katakana": "ミュ",
+        "Hiragana": "みゅ",
+        "Romaji": "myu",
+        "family": "m"
+    },
+    {
+        "Katakana": "ミョ",
+        "Hiragana": "みょ",
+        "Romaji": "myo",
+        "family": "m"
+    },
+    {
+        "Katakana": "ヤ",
+        "Hiragana": "や",
+        "Romaji": "ya",
+        "family": "y"
+    },
+    {
+        "Katakana": "ユ",
+        "Hiragana": "ゆ",
+        "Romaji": "yu",
+        "family": "y"
+    },
+    {
+        "Katakana": "ヨ",
+        "Hiragana": "よ",
+        "Romaji": "yo",
+        "family": "y"
+    },
+    {
+        "Katakana": "ラ",
+        "Hiragana": "ら",
+        "Romaji": "ra",
+        "family": "r"
+    },
+    {
+        "Katakana": "リ",
+        "Hiragana": "り",
+        "Romaji": "ri",
+        "family": "r"
+    },
+    {
+        "Katakana": "ル",
+        "Hiragana": "る",
+        "Romaji": "ru",
+        "family": "r"
+    },
+    {
+        "Katakana": "レ",
+        "Hiragana": "れ",
+        "Romaji": "re",
+        "family": "r"
+    },
+    {
+        "Katakana": "ロ",
+        "Hiragana": "ろ",
+        "Romaji": "ro",
+        "family": "r"
+    },
+    {
+        "Katakana": "リャ",
+        "Hiragana": "りゃ",
+        "Romaji": "rya",
+        "family": "r"
+    },
+    {
+        "Katakana": "リュ",
+        "Hiragana": "りゅ",
+        "Romaji": "ryu",
+        "family": "r"
+    },
+    {
+        "Katakana": "リョ",
+        "Hiragana": "りょ",
+        "Romaji": "ryo",
+        "family": "r"
+    },
+    {
+        "Katakana": "ワ",
+        "Hiragana": "わ",
+        "Romaji": "wa",
+        "family": "w"
+    },
+    {
+        "Katakana": "ヲ",
+        "Hiragana": "を",
+        "Romaji": "wo",
+        "family": "w"
+    },
+    {
+        "Katakana": "ン",
+        "Hiragana": "ん",
+        "Romaji": "n",
+        "family": "*"
+    }
+]
