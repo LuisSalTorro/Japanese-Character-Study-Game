@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const CharacterCard = props => {
     const hiragana = props.character.Hiragana
     const katakana = props.character.Katakana
     const romaji = props.character.Romaji
+
+    const displayCharacter = props.displayCharacter
 
     return (
         <View style={styles.card}>
@@ -31,15 +32,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
     marginVertical: 6,
 
-    width: 100,
+    width: '40%',
     height: 100,
+    padding: 15,
 
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-
   text: {
       fontSize: 45,
-      alignSelf: 'center'
+      alignSelf: 'center',
   }
 });
 

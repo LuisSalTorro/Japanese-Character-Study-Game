@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, Button} from 'react-native';
 import hiragana_katakana from "./../../json/hiragana_katakana"
 
 import CharacterCard from "./../Components/CharacterCard"
+import TopCard from './TopCard';
+import CardChoices from './CardChoices';
 
 const FrontPage = props => {
   const navigation = props.navigation
   const routeParams = props.route.params
   const username = routeParams.username
-  const numberOfChoices = 5
+  const numberOfChoices = 4
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)
+
+  const [topCard, setTopCard] = useState(null)
+  const [choiceCards, setChoiceCards] = useState([])
+
+  useEffect(() => {
+    changeTopCard()
+    selectRandomCharacters()
+  }, [currentArrayIndex, characters])
 
   const shuffleCharacters = () => {
     let charactersArray = characters
@@ -35,29 +45,43 @@ const FrontPage = props => {
     }
   }
 
+  const getRandomNumber = (max = (characters.length - 1)) => {
+    return Math.floor(Math.random() * (max - 1))
+  }
+
+  const changeTopCard = () => {
+    setTopCard(characters[currentArrayIndex])
+  }
+
   const selectRandomCharacters = () => {
-    let arrayOfRandomCharacterObjects = []
+    let randomChoices = []
     let currentIndexes = [currentArrayIndex]
-    const getRandomNumber = () => Math.floor(Math.random() * (characters.length - 1))
     for (let i = 0; i < numberOfChoices; i++) {
       let randomNumber = getRandomNumber()
       while (currentIndexes.includes(randomNumber)) {
         randomNumber = getRandomNumber()
       }
       let characterSet = characters[randomNumber]
-      arrayOfRandomCharacterObjects.push(characterSet)
+      randomChoices.push(characterSet)
       currentIndexes.push(randomNumber)
     }
-    return Object.entries(arrayOfRandomCharacterObjects).map(([key, value]) => <CharacterCard key={key} character={value} /> )
+
+    setChoiceCards(randomChoices)
+  }
+
+  const displayChoiceCards = () => {
+    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} />
   }
 
   return (
       <ScrollView style={styles.outerContainer}>
         <View style={styles.container}>
           <View style={styles.cards}>
-            <View>
-              {selectRandomCharacters()}
-            </View>
+
+            { topCard && <TopCard characterSet={topCard} /> }
+
+            <View style={styles.bottomLine}></View>
+            { topCard && displayChoiceCards() }
           </View>
           <Button
             title='shuffle'
@@ -73,16 +97,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   cards: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column'
   },
-  outerContainer: { backgroundColor: '#fff'}
+  bottomLine: {
+    padding: 15,
+    marginBottom: 10,
+    borderBottomColor: 'rgba(50, 50, 50, 1)',
+    borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  outerContainer: {
+    backgroundColor: '#fff'
+  }
 });
 
 export default FrontPage;
