@@ -1,16 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 const CharacterCard = props => {
-    const hiragana = props.character.Hiragana
-    const katakana = props.character.Katakana
-    const romaji = props.character.Romaji
-
-    const displayCharacter = props.displayCharacter
+    const character = props.character
 
     return (
         <View style={styles.card}>
             <Text style={styles.text}>
-                {hiragana}
+                {character}
             </Text>
         </View>
     )

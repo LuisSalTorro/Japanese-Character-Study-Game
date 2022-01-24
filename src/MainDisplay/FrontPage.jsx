@@ -17,6 +17,9 @@ const FrontPage = props => {
   const [topCard, setTopCard] = useState(null)
   const [choiceCards, setChoiceCards] = useState([])
 
+  const [topCardAlphabet, setTopCardAlphabet] = useState('Hiragana')
+  const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState('Katakana')
+
   useEffect(() => {
     changeTopCard()
     selectRandomCharacters()
@@ -53,14 +56,31 @@ const FrontPage = props => {
     setTopCard(characters[currentArrayIndex])
   }
 
+  const getUniqueRandomIndex = currentIndexes => {
+    let randomNumber = getRandomNumber()
+    while (currentIndexes.includes(randomNumber)) {
+      randomNumber = getRandomNumber()
+    }
+    return randomNumber
+  }
+
+  /**
+   * Variables:
+   *  randomChoices ([]) sets the choice cards, which then become the option of cards to choose from
+   *  currentIndexes ([]) keeps track of which characters have already been chosen. This prevents multiple of the same options
+   *
+   *  randomIndexToPlaceAnswer (object) is the answer card position
+   */
   const selectRandomCharacters = () => {
     let randomChoices = []
     let currentIndexes = [currentArrayIndex]
+    const randomIndexToPlaceAnswer = getRandomNumber(numberOfChoices + 1)
     for (let i = 0; i < numberOfChoices; i++) {
-      let randomNumber = getRandomNumber()
-      while (currentIndexes.includes(randomNumber)) {
-        randomNumber = getRandomNumber()
+      if (randomIndexToPlaceAnswer === i) {
+        randomChoices.push(characters[currentArrayIndex])
+        continue
       }
+      let randomNumber = getUniqueRandomIndex(currentIndexes)
       let characterSet = characters[randomNumber]
       randomChoices.push(characterSet)
       currentIndexes.push(randomNumber)
@@ -70,7 +90,7 @@ const FrontPage = props => {
   }
 
   const displayChoiceCards = () => {
-    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} />
+    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} displayCharacter={bottomCardsAlphabet} />
   }
 
   return (
@@ -78,7 +98,7 @@ const FrontPage = props => {
         <View style={styles.container}>
           <View style={styles.cards}>
 
-            { topCard && <TopCard characterSet={topCard} /> }
+            { topCard && <TopCard characterSet={topCard} displayCharacter={topCardAlphabet}/> }
 
             <View style={styles.bottomLine}></View>
             { topCard && displayChoiceCards() }

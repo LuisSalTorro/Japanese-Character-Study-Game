@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import CharacterCard from "./../Components/CharacterCard"
 
-const CardChoices = ({ characterSets, displayCharacter, correctAnswerSet }) => {
+const CardChoices = ({ characterSets, correctAnswerSet, displayCharacter = 'Hiragana'}) => {
     const renderCards = () => {
-        return characterSets.map((item, index)=> <CharacterCard key={index} character={item} />)
+        return characterSets.map((item, index)=> <CharacterCard key={index} character={item[displayCharacter]} />)
     }
 
     return (
