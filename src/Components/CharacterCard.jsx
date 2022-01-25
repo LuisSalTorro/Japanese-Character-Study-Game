@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const CharacterCard = props => {
+    const characterSet = props.characterSet
     const character = props.character
     const isTouchable = props.isTouchable
     const onPressFunction = props.onPressFunction
 
     const onPress = () => {
-        onPressFunction(character)
+        onPressFunction(characterSet)
     }
 
     const renderTouchable = () => {

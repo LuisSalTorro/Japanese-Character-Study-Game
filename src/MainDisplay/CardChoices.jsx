@@ -12,6 +12,7 @@ const CardChoices = ({ characterSets, correctAnswerSet, onPressFunction, display
                 character={item[displayAlphabet]}
                 isTouchable={true}
                 onPressFunction={onPressFunction}
+                characterSet={item}
             />
         ))
     }
@@ -28,6 +29,6 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         flexWrap: 'wrap',
-    }
+    },
 })
 export default CardChoices;

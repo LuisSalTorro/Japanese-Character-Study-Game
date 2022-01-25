@@ -89,12 +89,22 @@ const FrontPage = props => {
     setChoiceCards(randomChoices)
   }
 
-  const getCardValueOnPress = cardCharacter => {
-    console.log('Card type', cardCharacter)
+  const getCardValueOnPress = selectedCharacterSet => {
+    if (selectedCharacterSet.Hiragana === topCard.Hiragana) {
+      console.log('Correct answer!')
+    }
+    else {
+      console.log('Incorrect answer')
+    }
   }
 
   const displayChoiceCards = () => {
-    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} displayAlphabet={bottomCardsAlphabet} onPressFunction={getCardValueOnPress} />
+    return <CardChoices
+      characterSets={choiceCards}
+      correctAnswerSet={topCard}
+      displayAlphabet={bottomCardsAlphabet}
+      onPressFunction={getCardValueOnPress}
+    />
   }
 
   return (
