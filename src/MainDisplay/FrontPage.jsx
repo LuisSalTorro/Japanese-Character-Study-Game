@@ -10,15 +10,15 @@ const FrontPage = props => {
   const navigation = props.navigation
   const routeParams = props.route.params
   const username = routeParams.username
-  const numberOfChoices = 4
+  const numberOfChoices = 6
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)
 
   const [topCard, setTopCard] = useState(null)
   const [choiceCards, setChoiceCards] = useState([])
 
-  const [topCardAlphabet, setTopCardAlphabet] = useState('Hiragana')
-  const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState('Katakana')
+  const [topCardAlphabet, setTopCardAlphabet] = useState('Hiragana') // will be passed down by props
+  const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState('Katakana') // will be passed down by props
 
   useEffect(() => {
     changeTopCard()
@@ -91,10 +91,10 @@ const FrontPage = props => {
 
   const getCardValueOnPress = selectedCharacterSet => {
     if (selectedCharacterSet.Hiragana === topCard.Hiragana) {
-      console.log('Correct answer!')
+      return 'rgba(75, 181, 67, 1)'
     }
     else {
-      console.log('Incorrect answer')
+      return 'rgba(230, 35, 5, 1)'
     }
   }
 

@@ -8,11 +8,11 @@ const CardChoices = ({ characterSets, correctAnswerSet, onPressFunction, display
     const renderCards = () => {
         return characterSets.map((item, index)=> (
             <CharacterCard
-                key={index}
-                character={item[displayAlphabet]}
-                isTouchable={true}
-                onPressFunction={onPressFunction}
-                characterSet={item}
+                key = {index}
+                character = {item[displayAlphabet]}
+                isTouchable = {true}
+                onPressFunction = {onPressFunction}
+                characterSet = {item}
             />
         ))
     }

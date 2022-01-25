@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Pressable} from 'react-native';
 
 const CharacterCard = props => {
     const characterSet = props.characterSet
@@ -6,20 +7,54 @@ const CharacterCard = props => {
     const isTouchable = props.isTouchable
     const onPressFunction = props.onPressFunction
 
-    const onPress = () => {
-        onPressFunction(characterSet)
+    const [cardStyle, setCardStyle] = useState({
+        opacity: 1,
+    })
+    const [characterStyle, setCharacterStyle] = useState({
+
+    })
+
+    const onPressOut = () => {
+        setCardStyle({
+            opacity: 1,
+            backgroundColor: '#fff'
+        })
+        setCharacterStyle({
+
+        })
+        let color = onPressFunction(characterSet)
+        setCardStyle({
+            opacity: 1,
+            backgroundColor: color
+        })
+        setTimeout(() => {
+            setCardStyle({
+            opacity: 1,
+            backgroundColor: '#fff'
+        })
+        }, 250)
+    }
+
+    const onPressIn = () => {
+        setCardStyle({
+            transform: [{scale: 1.2}]
+        })
+        setCharacterStyle({
+
+        })
     }
 
     const renderTouchable = () => {
         return (
-            <TouchableOpacity
-                style={styles.touchable}
-                onPress={onPress}
+            <Pressable
+                style={{...styles.touchable, ...styles.cardOpacity}}
+                onPressIn={onPressIn}
+                onPressOut={onPressOut}
             >
-                <Text style={styles.text}>
+                <Text style={{...styles.text, ...styles.dynamicCharacter}}>
                     {character}
                 </Text>
-            </TouchableOpacity>
+            </Pressable>
         )
     }
 
@@ -30,6 +65,39 @@ const CharacterCard = props => {
             </Text>
         )
     }
+    const styles = StyleSheet.create({
+        card: {
+            backgroundColor: '#fff',
+            borderRadius: 6,
+            borderWidth: 1,
+            elevation: 2,
+            shadowColor: 'rgba(50, 50, 50, 1)',
+            shadowOpacity: .3,
+            shadowOffset: {
+                width: 1,
+                height: 1
+            },
+            shadowRadius: 2,
+            marginHorizontal: 6,
+            marginVertical: 6,
+
+            width: '40%',
+            height: 100,
+
+            justifyContent: 'center',
+        },
+        text: {
+            fontSize: 45,
+            alignSelf: 'center',
+        },
+        touchable: {
+            justifyContent: 'center',
+            borderRadius: 6,
+            flex: 1,
+        },
+        dynamicCharacter: characterStyle,
+        cardOpacity: cardStyle
+        });
 
     return (
         <View style={styles.card}>
@@ -38,36 +106,6 @@ const CharacterCard = props => {
     )
 }
 
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 6,
-    borderWidth: 1,
-    elevation: 2,
-    shadowColor: 'rgba(50, 50, 50, 1)',
-    shadowOpacity: .3,
-    shadowOffset: {
-        width: 1,
-        height: 1
-    },
-    shadowRadius: 2,
-    marginHorizontal: 6,
-    marginVertical: 6,
 
-    width: '40%',
-    height: 100,
-
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 45,
-    alignSelf: 'center',
-  },
-  touchable: {
-    justifyContent: 'center',
-    borderRadius: 6,
-    flex: 1,
-  }
-});
 
 export default CharacterCard;
