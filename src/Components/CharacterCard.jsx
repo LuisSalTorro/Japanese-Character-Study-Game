@@ -1,13 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const CharacterCard = props => {
     const character = props.character
+    const isTouchable = props.isTouchable
+    const onPressFunction = props.onPressFunction
 
-    return (
-        <View style={styles.card}>
+    const onPress = () => {
+        onPressFunction(character)
+    }
+
+    const renderTouchable = () => {
+        return (
+            <TouchableOpacity
+                style={styles.touchable}
+                onPress={onPress}
+            >
+                <Text style={styles.text}>
+                    {character}
+                </Text>
+            </TouchableOpacity>
+        )
+    }
+
+    const renderNonTouchable = () => {
+        return (
             <Text style={styles.text}>
                 {character}
             </Text>
+        )
+    }
+
+    return (
+        <View style={styles.card}>
+            {isTouchable ? renderTouchable() : renderNonTouchable()}
         </View>
     )
 }
@@ -30,13 +55,17 @@ const styles = StyleSheet.create({
 
     width: '40%',
     height: 100,
-    padding: 15,
 
     justifyContent: 'center',
   },
   text: {
-      fontSize: 45,
-      alignSelf: 'center',
+    fontSize: 45,
+    alignSelf: 'center',
+  },
+  touchable: {
+    justifyContent: 'center',
+    borderRadius: 6,
+    flex: 1,
   }
 });
 

@@ -2,10 +2,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import CharacterCard from "./../Components/CharacterCard"
 
-const TopCard = ({ characterSet, displayCharacter = 'Hiragana' }) => {
+const TopCard = ({ characterSet, displayAlphabet = 'Hiragana' }) => {
     return (
         <View style={styles.container}>
-            <CharacterCard character={characterSet[displayCharacter]} />
+            <CharacterCard character={characterSet[displayAlphabet]} />
         </View>
     )
 }

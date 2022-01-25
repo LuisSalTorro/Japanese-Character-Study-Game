@@ -89,8 +89,12 @@ const FrontPage = props => {
     setChoiceCards(randomChoices)
   }
 
+  const getCardValueOnPress = cardCharacter => {
+    console.log('Card type', cardCharacter)
+  }
+
   const displayChoiceCards = () => {
-    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} displayCharacter={bottomCardsAlphabet} />
+    return <CardChoices characterSets={choiceCards} correctAnswerSet={topCard} displayAlphabet={bottomCardsAlphabet} onPressFunction={getCardValueOnPress} />
   }
 
   return (
@@ -98,10 +102,12 @@ const FrontPage = props => {
         <View style={styles.container}>
           <View style={styles.cards}>
 
-            { topCard && <TopCard characterSet={topCard} displayCharacter={topCardAlphabet}/> }
+            { topCard && <TopCard characterSet={topCard} displayAlphabet={topCardAlphabet}/> }
 
             <View style={styles.bottomLine}></View>
-            { topCard && displayChoiceCards() }
+            <View style={styles.bottomCards}>
+              { topCard && displayChoiceCards() }
+            </View>
           </View>
           <Button
             title='shuffle'
@@ -126,6 +132,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomColor: 'rgba(50, 50, 50, 1)',
     borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  bottomCards: {
+        width: '100%',
+        // flex: 1,
+        // flexDirection: 'row',
+        flexWrap: 'wrap',
   },
   outerContainer: {
     backgroundColor: '#fff'

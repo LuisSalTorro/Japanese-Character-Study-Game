@@ -1,10 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 import CharacterCard from "./../Components/CharacterCard"
 
-const CardChoices = ({ characterSets, correctAnswerSet, displayCharacter = 'Hiragana'}) => {
+const CardChoices = ({ characterSets, correctAnswerSet, onPressFunction, displayAlphabet = 'Hiragana'}) => {
+    const isCorrectAnswer = correctAnswerSet[displayAlphabet] === characterSets[displayAlphabet]
+
     const renderCards = () => {
-        return characterSets.map((item, index)=> <CharacterCard key={index} character={item[displayCharacter]} />)
+        return characterSets.map((item, index)=> (
+            <CharacterCard
+                key={index}
+                character={item[displayAlphabet]}
+                isTouchable={true}
+                onPressFunction={onPressFunction}
+            />
+        ))
     }
 
     return (
