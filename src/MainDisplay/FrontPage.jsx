@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, Button} from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import hiragana_katakana from "./../../json/hiragana_katakana"
 
 import TopCard from './TopCard';
 import CardChoices from './CardChoices';
 
 const FrontPage = props => {
-  const navigation = props.navigation
-  const routeParams = props.route.params
-  const username = routeParams.username
+  // const navigation = props.navigation
+  // const routeParams = props.route.params
+  // const username = routeParams.username || 'fuck'
   const numberOfChoices = 6
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)

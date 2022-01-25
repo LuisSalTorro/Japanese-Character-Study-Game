@@ -1,10 +1,15 @@
+import 'react-native-gesture-handler';
+
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 
 import LandingPage from "./LandingPage/LandingPage"
-import FrontPage from "./MainDisplay/FrontPage"
+import FrontPageStack from "./MainDisplay/FrontPageStack"
 
+const DrawerNavigator = createDrawerNavigator();
 const Main = () => {
   const Stack = createNativeStackNavigator()
 
@@ -12,7 +17,7 @@ const Main = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Account'}}/>
-        <Stack.Screen name="FrontPage" component={FrontPage} options={{ title: 'Characters' }}/>
+        <Stack.Screen name="FrontPageStack" component={FrontPageStack} />
       </Stack.Navigator>
     </NavigationContainer>
   )
