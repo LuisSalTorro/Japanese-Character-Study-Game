@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, Button} from 'react-native';
 import hiragana_katakana from "./../../json/hiragana_katakana"
 
-import CharacterCard from "./../Components/CharacterCard"
 import TopCard from './TopCard';
 import CardChoices from './CardChoices';
 

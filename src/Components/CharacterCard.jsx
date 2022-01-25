@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Pressable} from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Pressable} from 'react-native';
 
 const CharacterCard = props => {
     const characterSet = props.characterSet
