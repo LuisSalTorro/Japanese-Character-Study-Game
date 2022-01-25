@@ -10,17 +10,11 @@ const CharacterCard = props => {
     const [cardStyle, setCardStyle] = useState({
         opacity: 1,
     })
-    const [characterStyle, setCharacterStyle] = useState({
-
-    })
 
     const onPressOut = () => {
         setCardStyle({
             opacity: 1,
             backgroundColor: '#fff'
-        })
-        setCharacterStyle({
-
         })
         let color = onPressFunction(characterSet)
         setCardStyle({
@@ -38,9 +32,6 @@ const CharacterCard = props => {
     const onPressIn = () => {
         setCardStyle({
             transform: [{scale: 1.2}]
-        })
-        setCharacterStyle({
-
         })
     }
 
@@ -95,7 +86,6 @@ const CharacterCard = props => {
             borderRadius: 6,
             flex: 1,
         },
-        dynamicCharacter: characterStyle,
         cardOpacity: cardStyle
         });
 

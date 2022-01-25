@@ -20,6 +20,7 @@ const FrontPage = props => {
   const [topCardAlphabet, setTopCardAlphabet] = useState('Hiragana') // will be passed down by props
   const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState('Katakana') // will be passed down by props
 
+  const [correctStreak, setCorrectStreak] = useState(0)
   useEffect(() => {
     changeTopCard()
     selectRandomCharacters()
@@ -91,9 +92,14 @@ const FrontPage = props => {
 
   const getCardValueOnPress = selectedCharacterSet => {
     if (selectedCharacterSet.Hiragana === topCard.Hiragana) {
+      setTimeout(()=> {
+        randomize()
+      }, 400)
+      setCorrectStreak(correctStreak + 1)
       return 'rgba(75, 181, 67, 1)'
     }
     else {
+      setCorrectStreak(0)
       return 'rgba(230, 35, 5, 1)'
     }
   }
@@ -119,10 +125,9 @@ const FrontPage = props => {
               { topCard && displayChoiceCards() }
             </View>
           </View>
-          <Button
-            title='shuffle'
-            onPress={() => randomize()}
-          />
+          <Text style={styles.streak}>
+            Streak: {correctStreak}
+          </Text>
         </View>
       </ScrollView>
   )
@@ -145,12 +150,14 @@ const styles = StyleSheet.create({
   },
   bottomCards: {
         width: '100%',
-        // flex: 1,
-        // flexDirection: 'row',
         flexWrap: 'wrap',
   },
   outerContainer: {
     backgroundColor: '#fff'
+  },
+  streak: {
+    fontSize: 30,
+    margin: 25
   }
 });
 
