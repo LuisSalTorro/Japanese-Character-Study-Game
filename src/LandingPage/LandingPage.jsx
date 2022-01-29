@@ -14,7 +14,7 @@ const LandingPage = props => {
       index: 1,
       routes: [
           {
-            name: 'FrontPage',
+            name: 'Drawer',
             params: data
           }
       ]

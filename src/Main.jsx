@@ -1,18 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 import LandingPage from "./LandingPage/LandingPage"
-import FrontPage from "./MainDisplay/FrontPage"
+import Drawer from "./MainDisplay/Drawer"
 
 const Main = () => {
   const Stack = createNativeStackNavigator()
 
+  const mainPageScreenOptions = {
+    headerShown: false
+  }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={mainPageScreenOptions}
+      >
         <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Account'}}/>
-        <Stack.Screen name="FrontPage" component={FrontPage} options={{ title: 'Characters' }}/>
+        <Stack.Screen name="Drawer" component={Drawer} />
       </Stack.Navigator>
     </NavigationContainer>
   )
