@@ -21,8 +21,8 @@ const FrontPage = (props) => {
   const [topCard, setTopCard] = useState(null)
   const [choiceCards, setChoiceCards] = useState([])
 
-  const [topCardAlphabet, setTopCardAlphabet] = useState("Hiragana") // will be passed down by props
-  const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState("Katakana") // will be passed down by props
+  const [topCardAlphabet, setTopCardAlphabet] = useState("Hiragana")
+  const [bottomCardsAlphabet, setBottomCardsAlphabet] = useState("Katakana")
 
   const [currentStreak, setCurrentStreak] = useState(0)
   const [highestStreak, setHighestStreak] = useState(0)
@@ -163,28 +163,41 @@ const FrontPage = (props) => {
     return highestStreak
   }
 
-  const formToChangeTopCard = () => {
-    const currentTopCard = topCardAlphabet
-    const changeTo = bottomCardsAlphabet
+  const formToChangeTopCard = selectedAlphabet => {
+    let newBottomCards = topCardAlphabet
+    if (selectedAlphabet === 'Romaji' || selectedAlphabet === 'Katakana') {
+      newBottomCards = "Hiragana"
+    }
+    else {
+      newBottomCards = 'Katakana'
+    }
+    const changeTo = selectedAlphabet
     setTopCardAlphabet(changeTo)
-    setBottomCardsAlphabet(currentTopCard)
+    setBottomCardsAlphabet(newBottomCards)
     randomize()
     setCurrentStreak(0)
   }
 
+  // If top card is roomaji, bottom cards are hiragana
     const displayLittleCardOnSide = () => {
-      let display = 'か'
       if (topCardAlphabet === 'Hiragana') {
-        // pass
+        return [getSmallCard("か", 'Katakana'), getSmallCard("R", "Romaji")]
       }
       else if (topCardAlphabet === 'Katakana') {
-        display = 'ひ'
+        return [getSmallCard("ひ", "Hiragana"), getSmallCard("R", "Romaji")]
       }
-      // const buttonTitle = display
+      else if (topCardAlphabet === 'Romaji') {
+        return [getSmallCard("ひ", "Hiragana"), getSmallCard("か", "Katakana")]
+      }
+    }
+
+    const getSmallCard = (display, selectedAlphabet) => {
       return (
         <View style={{ alignSelf: "center" }}>
           <TouchableOpacity
-            onPress={formToChangeTopCard}
+            onPress={() => {
+              formToChangeTopCard(selectedAlphabet)
+            }}
             style={styles.smallCard}
           >
             <Text>{display}</Text>
@@ -202,7 +215,9 @@ const FrontPage = (props) => {
               displayAlphabet={topCardAlphabet}
             />
           )}
-          {displayLittleCardOnSide()}
+          <View style={styles.smallCards}>
+            {displayLittleCardOnSide()}
+          </View>
 
           <View style={styles.bottomLine}></View>
           <View style={styles.bottomCards}>
@@ -247,13 +262,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
 
     alignItems: "center",
-    alignSelf: 'baseline',
+    alignSelf: "baseline",
 
     borderColor: "black",
     borderWidth: 1,
     borderRadius: 5,
 
-    padding: 4
+    padding: 4,
+  },
+  smallCards: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginLeft: 15,
+    marginRight: 15,
   },
 })
 
