@@ -29,11 +29,29 @@ const FrontPage = (props) => {
 
   const [isLoading, setIsLoading] = useState(true)
 
+  const correctSoundLocation = "./../Audio/correct.mp3"
+  const wrongSoundLocation = "./../Audio/wrong.mp3"
+  let sound = new Audio.Sound()
+
   useEffect(() => {
     changeTopCard()
     selectRandomCharacters()
     getHighestStreakFromLocalStorage()
+    return () => {
+      sound.unloadAsync()
+    }
   }, [currentArrayIndex, characters])
+
+  const playSoundEffects = async (mp3_location) => {
+    sound = new Audio.Sound()
+    if (mp3_location === correctSoundLocation) {
+      await sound.loadAsync(require(correctSoundLocation))
+    }
+    else {
+      await sound.loadAsync(require(wrongSoundLocation))
+    }
+    await sound.playAsync()
+  }
 
   const shuffleCharacters = () => {
     let charactersArray = characters
@@ -113,9 +131,11 @@ const FrontPage = (props) => {
       setTimeout(() => {
         randomize()
       }, 400)
+      playSoundEffects(correctSoundLocation)
       setCurrentStreak(currentStreak + 1)
       return "rgba(75, 181, 67, 1)"
     } else {
+      playSoundEffects(wrongSoundLocation)
       setCurrentStreak(0)
       return "rgba(230, 35, 5, 1)"
     }
