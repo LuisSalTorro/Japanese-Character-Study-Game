@@ -143,13 +143,46 @@ const FrontPage = (props) => {
     return highestStreak
   }
 
+  const formToChangeTopCard = () => {
+    const currentTopCard = topCardAlphabet
+    const changeTo = bottomCardsAlphabet
+    setTopCardAlphabet(changeTo)
+    setBottomCardsAlphabet(currentTopCard)
+    randomize()
+    setCurrentStreak(0)
+  }
+
+    const displayLittleCardOnSide = () => {
+      let display = 'か'
+      if (topCardAlphabet === 'Hiragana') {
+        // pass
+      }
+      else if (topCardAlphabet === 'Katakana') {
+        display = 'ひ'
+      }
+      // const buttonTitle = display
+      return (
+        <View style={{ alignSelf: "center" }}>
+          <TouchableOpacity
+            onPress={formToChangeTopCard}
+            style={styles.smallCard}
+          >
+            <Text>{display}</Text>
+          </TouchableOpacity>
+        </View>
+      )
+    }
   return (
     <ScrollView style={styles.outerContainer}>
       <View style={styles.container}>
         <View style={styles.cards}>
           {topCard && (
-            <TopCard characterSet={topCard} displayAlphabet={topCardAlphabet} />
+            <TopCard
+              characterSet={topCard}
+              displayAlphabet={topCardAlphabet}
+            />
           )}
+          {displayLittleCardOnSide()}
 
           <View style={styles.bottomLine}></View>
           <View style={styles.bottomCards}>
@@ -188,6 +221,19 @@ const styles = StyleSheet.create({
   streak: {
     fontSize: 30,
     margin: 25,
+  },
+  smallCard: {
+    fontSize: 3,
+    backgroundColor: "#fff",
+
+    alignItems: "center",
+    alignSelf: 'baseline',
+
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 5,
+
+    padding: 4
   },
 })
 
