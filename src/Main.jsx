@@ -20,7 +20,6 @@ const Main = () => {
       <Stack.Navigator
         screenOptions={mainPageScreenOptions}
       >
-        <Stack.Screen name="LandingPage" component={LandingPage} options={{ title: 'Account'}}/>
         <Stack.Screen name="Drawer" component={Drawer} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -8,11 +8,12 @@ import CardChoices from "./CardChoices"
 import { useRoute } from "@react-navigation/native"
 
 import { storeData, getData } from "../Storage/Store"
+import { Audio } from "expo-av"
+import { TouchableOpacity } from "react-native-gesture-handler"
 
 const FrontPage = (props) => {
-  // const navigation = props.navigation
   const routeParams = useRoute().params
-  const username = routeParams.username
+  // const username = routeParams.username
   const numberOfChoices = 6
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)
