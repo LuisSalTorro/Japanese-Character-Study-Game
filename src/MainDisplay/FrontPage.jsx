@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native"
+import { StyleSheet, Text, View, ScrollView } from "react-native"
 
 import hiragana_katakana from "./../../json/hiragana_katakana"
 
@@ -9,8 +9,9 @@ import CardChoices from "./CardChoices"
 import { storeData, getData } from "../Storage/Store"
 import { Audio } from "expo-av"
 import { TouchableOpacity } from "react-native-gesture-handler"
+import BannerAd from "./../Components/Ads/Banners"
 
-const FrontPage = (props) => {
+const FrontPage = () => {
   const numberOfChoices = 6
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)
@@ -214,6 +215,7 @@ const FrontPage = (props) => {
         </View>
         <Text style={styles.streak}>Streak: {getCurrentStreak()}</Text>
         {!isLoading && <Text>{getHighestStreak()}</Text>}
+        <BannerAd />
       </View>
     </ScrollView>
   )

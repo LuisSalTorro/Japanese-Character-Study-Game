@@ -17,12 +17,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+       "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6231044358869724~3306750616"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6231044358869724~1475380922"
       }
     },
     "web": {
