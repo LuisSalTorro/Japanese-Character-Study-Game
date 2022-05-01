@@ -181,13 +181,13 @@ const FrontPage = (props) => {
   // If top card is roomaji, bottom cards are hiragana
     const displayLittleCardOnSide = () => {
       if (topCardAlphabet === 'Hiragana') {
-        return [getSmallCard("か", 'Katakana'), getSmallCard("R", "Romaji")]
+        return [getSmallCard("カ", "Katakana"), getSmallCard("R", "Romaji")]
       }
       else if (topCardAlphabet === 'Katakana') {
         return [getSmallCard("ひ", "Hiragana"), getSmallCard("R", "Romaji")]
       }
       else if (topCardAlphabet === 'Romaji') {
-        return [getSmallCard("ひ", "Hiragana"), getSmallCard("か", "Katakana")]
+        return [getSmallCard("ひ", "Hiragana"), getSmallCard("カ", "Katakana")]
       }
     }
 
