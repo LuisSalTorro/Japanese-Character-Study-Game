@@ -12,9 +12,9 @@ const Drawer = (props) => {
 
   return (
     <NavigationContainer independent={true}>
-      <DrawerNavigator.Navigator initialRouteName="Japanese Test">
+      <DrawerNavigator.Navigator initialRouteName="Japanese Characters">
         <DrawerNavigator.Screen
-          name="Japanese Test"
+          name="Learn Japanese"
           component={FrontPage}
           initialParams={{ username: "username" }}
         />
