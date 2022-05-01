@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import CharacterCard from "./../Components/CharacterCard"
 

@@ -22,24 +22,4 @@ const getData = async (key) => {
   }
 }
 
-
-// const initialState = {
-//   topCard: 'Hiragana',
-//   bottomCards: 'Katakana'
-// }
-
-// const cardState = (state=initialState, action) => {
-//   switch (action.type) {
-//     case 'changeCards':
-//       return {
-//         topCard: action.topCard,
-//         bottomCards: action.bottomCards, // idk if i'll need to uncomment
-//       }
-//       default:
-//         return state
-//     }
-// }
-
-// let cardStore = createStore(cardState)
-
 export { storeData, getData }

@@ -5,15 +5,12 @@ import hiragana_katakana from "./../../json/hiragana_katakana"
 
 import TopCard from "./TopCard"
 import CardChoices from "./CardChoices"
-import { useRoute } from "@react-navigation/native"
 
 import { storeData, getData } from "../Storage/Store"
 import { Audio } from "expo-av"
 import { TouchableOpacity } from "react-native-gesture-handler"
 
 const FrontPage = (props) => {
-  const routeParams = useRoute().params
-  // const username = routeParams.username
   const numberOfChoices = 6
   const [characters, setCharacters] = useState(hiragana_katakana)
   const [currentArrayIndex, setCurrentArrayIndex] = useState(0)
@@ -46,8 +43,7 @@ const FrontPage = (props) => {
     sound = new Audio.Sound()
     if (mp3_location === correctSoundLocation) {
       await sound.loadAsync(require(correctSoundLocation))
-    }
-    else {
+    } else {
       await sound.loadAsync(require(wrongSoundLocation))
     }
     await sound.playAsync()
@@ -94,11 +90,10 @@ const FrontPage = (props) => {
   }
 
   const getHighestStreakFromLocalStorage = async () => {
-    return await getData("highStreak")
-      .then((streak) => {
-        setHighestStreak(parseInt(streak))
-        setIsLoading(false)
-      })
+    return await getData("highStreak").then((streak) => {
+      setHighestStreak(parseInt(streak))
+      setIsLoading(false)
+    })
   }
 
   /**
@@ -163,13 +158,12 @@ const FrontPage = (props) => {
     return highestStreak
   }
 
-  const formToChangeTopCard = selectedAlphabet => {
+  const formToChangeTopCard = (selectedAlphabet) => {
     let newBottomCards = topCardAlphabet
-    if (selectedAlphabet === 'Romaji' || selectedAlphabet === 'Katakana') {
+    if (selectedAlphabet === "Romaji" || selectedAlphabet === "Katakana") {
       newBottomCards = "Hiragana"
-    }
-    else {
-      newBottomCards = 'Katakana'
+    } else {
+      newBottomCards = "Katakana"
     }
     const changeTo = selectedAlphabet
     setTopCardAlphabet(changeTo)
@@ -179,45 +173,39 @@ const FrontPage = (props) => {
   }
 
   // If top card is roomaji, bottom cards are hiragana
-    const displayLittleCardOnSide = () => {
-      if (topCardAlphabet === 'Hiragana') {
-        return [getSmallCard("カ", "Katakana"), getSmallCard("R", "Romaji")]
-      }
-      else if (topCardAlphabet === 'Katakana') {
-        return [getSmallCard("ひ", "Hiragana"), getSmallCard("R", "Romaji")]
-      }
-      else if (topCardAlphabet === 'Romaji') {
-        return [getSmallCard("ひ", "Hiragana"), getSmallCard("カ", "Katakana")]
-      }
+  const displayLittleCardOnSide = () => {
+    if (topCardAlphabet === "Hiragana") {
+      return [getSmallCard("カ", "Katakana"), getSmallCard("R", "Romaji")]
+    } else if (topCardAlphabet === "Katakana") {
+      return [getSmallCard("ひ", "Hiragana"), getSmallCard("R", "Romaji")]
+    } else if (topCardAlphabet === "Romaji") {
+      return [getSmallCard("ひ", "Hiragana"), getSmallCard("カ", "Katakana")]
     }
+  }
 
-    const getSmallCard = (display, selectedAlphabet) => {
-      return (
-        <View style={{ alignSelf: "center" }}>
-          <TouchableOpacity
-            onPress={() => {
-              formToChangeTopCard(selectedAlphabet)
-            }}
-            style={styles.smallCard}
-          >
-            <Text>{display}</Text>
-          </TouchableOpacity>
-        </View>
-      )
-    }
+  const getSmallCard = (display, selectedAlphabet) => {
+    return (
+      <View style={{ alignSelf: "center" }}>
+        <TouchableOpacity
+          onPress={() => {
+            formToChangeTopCard(selectedAlphabet)
+          }}
+          style={styles.smallCard}
+        >
+          <Text>{display}</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
   return (
     <ScrollView style={styles.outerContainer}>
       <View style={styles.container}>
         <View style={styles.cards}>
           {topCard && (
-            <TopCard
-              characterSet={topCard}
-              displayAlphabet={topCardAlphabet}
-            />
+            <TopCard characterSet={topCard} displayAlphabet={topCardAlphabet} />
           )}
-          <View style={styles.smallCards}>
-            {displayLittleCardOnSide()}
-          </View>
+          <View style={styles.smallCards}>{displayLittleCardOnSide()}</View>
 
           <View style={styles.bottomLine}></View>
           <View style={styles.bottomCards}>

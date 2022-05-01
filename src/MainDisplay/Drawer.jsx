@@ -6,8 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer"
 import FrontPage from "./FrontPage"
 import About from "./About"
 
-const Drawer = (props) => {
-  const routeParams = props.route.params
+const Drawer = () => {
   const DrawerNavigator = createDrawerNavigator()
 
   return (
@@ -16,7 +15,6 @@ const Drawer = (props) => {
         <DrawerNavigator.Screen
           name="Learn Japanese"
           component={FrontPage}
-          initialParams={{ username: "username" }}
         />
         <DrawerNavigator.Screen name="About" component={About} />
       </DrawerNavigator.Navigator>
